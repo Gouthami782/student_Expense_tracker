@@ -1,0 +1,4 @@
+.idea/
+student-expense-tracker/target/
+student-expense-tracker/.idea/
+*.iml

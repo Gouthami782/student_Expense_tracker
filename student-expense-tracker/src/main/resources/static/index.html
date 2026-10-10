@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Expense Tracker</title>
+
+    <!-- Website tab icon (favicon) -->
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/style.css?v=5">
+</head>
+
+<body>
+<main class="container">
+
+    <!-- Website Header -->
+    <header class="site-header">
+        <div class="header-text">
+            <h1>Student Expense Tracker</h1>
+            <p>Manage your daily expenses</p>
+        </div>
+    </header>
+
+    <!-- Overall Expense Summary -->
+    <section class="summary">
+        <h2>Total Expenses</h2>
+        <h3 id="total">₹0.00</h3>
+    </section>
+
+    <!-- Monthly Expense Summary -->
+    <section class="summary">
+        <h2>Monthly Expense Summary</h2>
+
+        <label for="monthFilter">Select Month:</label>
+        <input type="month" id="monthFilter">
+
+        <h3 id="monthlyTotal">₹0.00</h3>
+        <p id="monthlyMessage">Select a month to view your expenses.</p>
+    </section>
+
+    <!-- Monthly Budget -->
+    <section class="summary">
+        <h2>Monthly Budget</h2>
+
+        <label for="budgetAmount">Enter your budget (₹):</label>
+        <input
+                id="budgetAmount"
+                type="number"
+                min="0.01"
+                step="0.01"
+                placeholder="Enter monthly budget"
+        >
+
+        <button type="button" id="saveBudgetButton">
+            Save Budget
+        </button>
+
+        <p id="budgetMessage"></p>
+
+        <p>Monthly Budget: <strong id="displayBudget">₹0.00</strong></p>
+        <p>Amount Spent: <strong id="budgetSpent">₹0.00</strong></p>
+        <p>Remaining Budget: <strong id="budgetRemaining">₹0.00</strong></p>
+        <p id="budgetWarning"></p>
+    </section>
+
+    <!-- Monthly Spending Alert -->
+    <section class="summary" id="spendingAlertCard">
+        <h2>Monthly Spending Alert</h2>
+        <p id="spendingAlert" role="status" aria-live="polite">
+            Checking your spending...
+        </p>
+    </section>
+
+    <!-- Category-wise Spending -->
+    <section class="summary">
+        <h2>Category-wise Spending</h2>
+
+        <div id="categorySummary">
+            <p>Your category totals will appear here.</p>
+        </div>
+    </section>
+
+    <!-- Add Expense Form -->
+    <form id="expenseForm">
+        <input
+                id="amount"
+                type="number"
+                min="0.01"
+                step="0.01"
+                placeholder="Amount (₹)"
+                required
+        >
+
+        <select id="category" required>
+            <option value="">Select category</option>
+            <option>Food</option>
+            <option>Travel</option>
+            <option>Shopping</option>
+            <option>Education</option>
+            <option>Other</option>
+        </select>
+
+        <input
+                id="description"
+                placeholder="Description"
+                required
+        >
+
+        <input id="expenseDate" type="date" required>
+
+        <button type="submit">Add Expense</button>
+    </form>
+
+    <p id="message"></p>
+
+    <!-- Expense Table -->
+    <h2>Your Expenses</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Date</th>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Amount</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+
+        <tbody id="expenseList"></tbody>
+    </table>
+
+</main>
+
+<script src="/script.js?v=6"></script>
+</body>
+</html>
